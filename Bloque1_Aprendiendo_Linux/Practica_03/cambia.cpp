@@ -17,8 +17,8 @@ int main(int argc, char *argv[]) {
     char c1 = argv[2][0]; // El primer carácter del segundo argumento
     char c2 = argv[3][0]; // El primer carácter del tercer argumento
 
-    // 3. Abrir el fichero en modo lectura y escritura
-    std::fstream fichero(nombreFichero, std::ios::in | std::ios::out);
+    // 3. Por defecto los objetos fstream abre un fichero para lectura/escritura
+    std::fstream fichero(nombreFichero);
 
     // 4. Comprobar si el fichero se abrió correctamente
     if (!fichero.is_open()) {
@@ -38,14 +38,10 @@ int main(int argc, char *argv[]) {
             
             // Escribimos (reemplazamos) el nuevo carácter en esa posición.
             fichero.put(c2);
-
-            // Es buena práctica asegurarse de que los punteros de lectura y escritura
-            // estén sincronizados después de una escritura.
-            fichero.seekg(fichero.tellp());
         }
     }
 
-    // 6. Cerrar el fichero
+    // 6. Cerrar el fichero para garantizar que los cambios se reflejen en disco
     fichero.close();
 
     std::cout << "✅ Reemplazo completado con éxito en el fichero '" << nombreFichero << "'." << std::endl;
