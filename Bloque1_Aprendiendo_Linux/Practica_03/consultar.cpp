@@ -9,6 +9,7 @@ const std::string nomFich = "/home/usuario/notas";   /* ruta del fichero de nota
 
 /** @brief Obtiene la nota del usuario que ejecuta el programa del fichero indicado
  *  @pre El fichero tiene líneas de la forma: usuario:nota:
+ *  @pre Los valores decimales deben ir separados por un punto. e.g. 8.5
  *  @example ./consulta 
 */
 int main(int argc, char *argv[]) {
